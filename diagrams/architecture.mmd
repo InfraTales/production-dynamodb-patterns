@@ -1,0 +1,11 @@
+graph TD
+    subgraph AWS["AWS Cloud"]
+        APIGateway[API Gateway]
+        DDB[(DynamoDB)]
+        Cognito[Cognito]
+    end
+
+    Lambda --> APIGateway
+    APIGateway --> DDB
+    DDB --> Cognito
+    DDB -.->|metrics| CW[CloudWatch]
